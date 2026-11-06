@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trader Terminal | Акции</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">📈 Trader Terminal</div>
+    <a href="index.html">Новости</a>
+    <a href="stocks.html" class="active">Акции</a>
+    <span style="margin-left:auto; font-size:0.8rem; color:var(--text-muted)" id="clock"></span>
+  </nav>
+
+  <div class="container">
+    <h1>Российские акции <span class="badge" id="session-status">Загрузка...</span></h1>
+    
+    <div class="panel">
+      <table>
+        <thead>
+          <tr>
+            <th>Тикер</th>
+            <th>Название</th>
+            <th>Цена (₽)</th>
+            <th>Изм. %</th>
+            <th>Объем</th>
+          </tr>
+        </thead>
+        <tbody id="stocks-body">
+          <tr><td colspan="5" class="loading">Получение данных с Мосбиржи (задержка 15 мин)...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Блок времени торгов -->
+    <div class="panel">
+      <h2>🕒 Режим торгов (Мосбиржа)</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; font-size:0.9rem;">
+        <div>
+          <p style="color:var(--text-muted)">Фондовый рынок (будни):</p>
+          <p>Утро: <span style="color:var(--green-up)">06:50 – 09:00</span></p>
+          <p>Основная: <span style="color:var(--green-up)">09:00 – 19:00</span></p>
+          <p>Вечер: <span style="color:var(--green-up)">19:00 – 23:50</span></p>
+        </div>
+        <div>
+          <p style="color:var(--text-muted)">Выходные (с 14.09.2026):</p>
+          <p>Сессия: <span style="color:var(--green-up)">09:50 – 19:00</span></p>
+          <p style="margin-top:1rem; font-size:0.8rem; color:var(--text-muted)">* Данные акций предоставляются с задержкой 15 минут [citation:2].</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    setInterval(() => {
+      document.getElementById('clock').textContent = new Date().toLocaleTimeString('ru-RU');
+    }, 1000);
+  </script>
+</body>
+</html>

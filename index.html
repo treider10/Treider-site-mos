@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trader Terminal | Новости</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">📈 Trader Terminal</div>
+    <a href="index.html" class="active">Новости</a>
+    <a href="stocks.html">Акции</a>
+    <span style="margin-left:auto; font-size:0.8rem; color:var(--text-muted)" id="clock"></span>
+  </nav>
+
+  <div class="container">
+    <h1>Главные новости трейдинга <span class="badge">Обновлено сейчас</span></h1>
+    
+    <div class="panel">
+      <div class="news-list" id="news-container">
+        <!-- Сюда рендерим новости через JS -->
+        <div class="loading">Загрузка новостей с рынка...</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Часы
+    setInterval(() => {
+      document.getElementById('clock').textContent = new Date().toLocaleTimeString('ru-RU');
+    }, 1000);
+  </script>
+</body>
+</html>
